@@ -4,11 +4,18 @@ node_js:
   - node
   - lts/*
 
+dist: trusty
+sudo: false
+
 cache:
   yarn: true
   directories:
     - node_modules
 
+before_script:
+  - yarn add -D coveralls
+
 script:
-  - yarn test-all
   - yarn build
+  - yarn test-all
+  - yarn test --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
