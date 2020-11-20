@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Button from '@material-ui/core/Button'
 
 export const Home = (): JSX.Element => (
   <div className="container">
@@ -16,13 +17,15 @@ export const Home = (): JSX.Element => (
         Get started by editing <code>pages/index.tsx</code>
       </p>
 
-      <button
+      <Button
+        variant="outlined"
+        color="primary"
         onClick={() => {
           window.alert('With typescript and Jest')
         }}
       >
         Test Button
-      </button>
+      </Button>
 
       <div className="grid">
         <a href="https://nextjs.org/docs" className="card">
