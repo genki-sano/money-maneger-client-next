@@ -33,8 +33,8 @@ export default class MyDocument extends Document {
         styles: (
           <>
             {initialProps.styles}
-            {styledComponentSheets.getStyleElement()}
             {materialUiServerStyleSheets.getStyleElement()}
+            {styledComponentSheets.getStyleElement()}
           </>
         ),
       }

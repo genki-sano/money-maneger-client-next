@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import { GetServerSideProps } from 'next'
 import moment from 'moment'
 
-const Index: NextPage = () => {
+const Payments: NextPage = () => {
   return <div></div>
 }
 
@@ -15,4 +15,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
     },
   }
 }
-export default Index
+export default Payments
