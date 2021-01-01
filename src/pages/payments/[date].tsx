@@ -7,7 +7,7 @@ import PaymentTemplate from '@/components/04_templates/PaymentTemplate'
 import { selectPayments, fetchItems } from '@/lib/slices/payment'
 import { useSelector } from '@/store'
 
-const Payment: NextPage = () => {
+const Payments: NextPage = () => {
   const router = useRouter()
   const date = moment(router.query.date).format('YYYY-MM-DD')
 
@@ -31,4 +31,4 @@ const Payment: NextPage = () => {
   )
 }
 
-export default Payment
+export default Payments
