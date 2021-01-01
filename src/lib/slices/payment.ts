@@ -13,13 +13,16 @@ interface State {
   total: Total
 }
 
-type ThunkArg = string
-type ThunkApiConfig = {
-  rejectValue: AxiosResponse<ErrorResponse>
-}
-
 interface ErrorResponse {
   message: string
+}
+
+interface ThunkArg {
+  date: string
+}
+
+interface ThunkApiConfig {
+  rejectValue: AxiosResponse<ErrorResponse>
 }
 
 const initialState: State = {
@@ -36,7 +39,7 @@ const fetchPayments = createAsyncThunk<
   PaymentResponse,
   ThunkArg,
   ThunkApiConfig
->('payment/fetchPayments', async (date: ThunkArg, { rejectWithValue }) => {
+>('payment/fetchPayments', async ({ date }: ThunkArg, { rejectWithValue }) => {
   try {
     const res = await getByDate(date)
     return res.data
@@ -89,7 +92,7 @@ const { fetchStart } = paymentSlice.actions
 
 export const fetchItems = (date: string) => async (dispatch: AppDispatch) => {
   dispatch(fetchStart())
-  dispatch(fetchPayments(date))
+  dispatch(fetchPayments({ date }))
 }
 
 export const selectPayments = (state: RootState) => state.payments
